@@ -20,7 +20,8 @@ bear_options =
 	bear.anchorX = 0.5
 	bear.anchorY = 0.5
 	bear.x = math.random(0,800)
-	bear.y = math.random(500,700)
+	bear.y = math.random(350,800)
+	bear:scale(1.5,1.5)
 	bear:play()
 
 
