@@ -1,7 +1,6 @@
-display.setStatusBar( display.HiddenStatusBar )
  require 'class'
 
- Onion = class(function(onion,x,y)
+ Onion = class(function(onion)
 
 
 
@@ -20,18 +19,25 @@ onion_options =
 	onion = display.newSprite( onionSheet, { name="onion", start=1, count=2, time=1200 } )
 	onion.anchorX = 0.5
 	onion.anchorY = 0.5
-	onion.x = x
-	onion.y = y
+	onion.x = math.random(0,800)
+	onion.y = math.random(900,1200)
 	onion:play()
 
 
-
--- local function completeListener ( obj )
+local trans2
+local t1
+local function trans1 ( )
    
---    transition.to( onion, { time=10000, x=600, y=500, transition=easing.continuousLoop, onComplete=completeListener  } )
--- end
+   t1 =transition.to( onion, { time=1000, delay = onion.x,x=onion.x+50,  onComplete=trans2 } )
+end
 
--- 	transition.to( onion, { time=10000, x=600, y=500, transition=easing.continuousLoop, onComplete=completeListener  } )
+trans2 = function ()
+	t1 = transition.to( onion, { time=1000, x=onion.x - 50,  onComplete=trans1} )
+end
+
+trans1()
+
+
 
 end)
 

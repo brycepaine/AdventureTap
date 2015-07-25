@@ -1,7 +1,6 @@
-display.setStatusBar( display.HiddenStatusBar )
  require 'class'
- 
- Bear = class(function(bear,x,y)
+require 'class'
+ Bear = class(function(bear)
 
 
 
@@ -20,18 +19,25 @@ bear_options =
 	bear = display.newSprite( bearSheet, { name="bear", start=1, count=2, time=1200 } )
 	bear.anchorX = 0.5
 	bear.anchorY = 0.5
-	bear.x = x
-	bear.y = y
+	bear.x = math.random(0,800)
+	bear.y = math.random(500,700)
 	bear:play()
 
 
-
--- local function completeListener ( obj )
+local trans2
+local t1
+local function trans1 ( )
    
---    transition.to( bear, { time=10000, x=600, y=500, transition=easing.continuousLoop, onComplete=completeListener  } )
--- end
+   t1 =transition.to( bear, { time=1000, delay = bear.x,x=bear.x+50,  onComplete=trans2 } )
+end
 
--- 	transition.to( bear, { time=10000, x=600, y=500, transition=easing.continuousLoop, onComplete=completeListener  } )
+trans2 = function ()
+	t1 = transition.to( bear, { time=1000, x=bear.x - 50,  onComplete=trans1} )
+end
+
+trans1()
+
+
 
 end)
 
