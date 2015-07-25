@@ -1,14 +1,14 @@
-display.setStatusBar( display.HiddenStatusBar )
+
  require 'class'
  
- WhiteC = class(function(whiteC,x,y)
+ WhiteC = class(function(whiteC)
 
 
 
 whiteC_options = 
 	{
 		-- Required params
-		width = 41.5,
+		width = 41,
 		height = 44,
 		numFrames = 2,
 		-- content scaling
@@ -20,18 +20,27 @@ whiteC_options =
 	whiteC = display.newSprite( whiteCSheet, { name="whiteC", start=1, count=2, time=1200 } )
 	whiteC.anchorX = 0.5
 	whiteC.anchorY = 0.5
-	whiteC.x = x
-	whiteC.y = y
+	whiteC.x = math.random(0,800)
+	whiteC.y = math.random(70,200)
+	whiteC:scale(3,3)
 	whiteC:play()
 
 
 
--- local function completeListener ( obj )
+local trans2
+local t1
+local function trans1 ( )
    
---    transition.to( whiteC, { time=10000, x=600, y=500, transition=easing.continuousLoop, onComplete=completeListener  } )
--- end
+   t1 =transition.to( whiteC, { time=1000, delay = whiteC.x,x=whiteC.x+50,  onComplete=trans2 } )
+end
 
--- 	transition.to( whiteC, { time=10000, x=600, y=500, transition=easing.continuousLoop, onComplete=completeListener  } )
+trans2 = function ()
+	t1 = transition.to( whiteC, { time=1000, x=whiteC.x - 50,  onComplete=trans1} )
+end
+
+trans1()
+
+
 
 end)
 
