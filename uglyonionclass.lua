@@ -25,13 +25,17 @@ uglyO_options =
 	uglyO:scale(1.3,1.3)
 	uglyO:play()
 
+	physics.addBody(uglyO)
+	uglyO.bodyType = "static"
+
+	uglyO.exp = 2
 
 
 local trans2
 local t1
 local function trans1 ( )
    
-   t1 =transition.to( uglyO, { time=1000, delay = uglyO.x,x=uglyO.x+50,  onComplete=trans2 } )
+   t1 =transition.to( uglyO, { time=1000, delay = math.random(0,1000),x=uglyO.x+50,  onComplete=trans2 } )
 end
 
 trans2 = function ()

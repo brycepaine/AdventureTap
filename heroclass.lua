@@ -23,6 +23,10 @@ hero_options =
 	hero.y = 1400
 	hero:play()
 
+	physics.addBody(hero)
+
+	hero.exp = 1
+
 
 local trans2
 local t1

@@ -25,13 +25,17 @@ whiteC_options =
 	whiteC:scale(3,3)
 	whiteC:play()
 
+	physics.addBody( whiteC )
+	whiteC.bodyType = "static"
+
+	whiteC.exp = 30
 
 
 local trans2
 local t1
 local function trans1 ( )
    
-   t1 =transition.to( whiteC, { time=1000, delay = whiteC.x,x=whiteC.x+50,  onComplete=trans2 } )
+   t1 =transition.to( whiteC, { time=1000, delay = math.random(0,1000),x=whiteC.x+50,  onComplete=trans2 } )
 end
 
 trans2 = function ()

@@ -3,7 +3,6 @@
  Onion = class(function(onion)
 
 
-
 onion_options = 
 	{
 		-- Required params
@@ -23,17 +22,28 @@ onion_options =
 	onion.y = math.random(900,1200)
 	onion:play()
 
+	physics.addBody(onion)	
+	onion.bodyType = "static"
+
+	onion.exp = 1
+
+	onion.collision = "false"
+
 
 local trans2
 local t1
 local function trans1 ( )
-   
-   t1 =transition.to( onion, { time=1000, delay = onion.x,x=onion.x+50,  onComplete=trans2 } )
+   if (onion.collision == "false") then
+   		t1 =transition.to( onion, { time=1000, delay = math.random(0,1000),x=onion.x+50,  onComplete=trans2 } )
+	end
 end
 
 trans2 = function ()
-	t1 = transition.to( onion, { time=1000, x=onion.x - 50,  onComplete=trans1} )
+	if(onion.collision == "false") then
+		t1 = transition.to( onion, { time=1000, x=onion.x - 50,  onComplete=trans1} )
+	end
 end
+
 
 trans1()
 
