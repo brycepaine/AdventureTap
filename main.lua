@@ -1,7 +1,7 @@
 display.setStatusBar( display.HiddenStatusBar )
 require 'onionclass'
 require 'bearclass'
-
+require 'class'
 require 'heroclass'
 
 require 'treeMclass'
@@ -14,8 +14,9 @@ physics.setGravity( 0, 0 )
 
 math.randomseed(os.time()) 
 
+
 for i = 0, 17 do
- Onion()
+  	Onion()
 end
 
 for i = 0, 10 do
@@ -23,15 +24,15 @@ for i = 0, 10 do
 end
 
 for i = 0, 10 do
-Treem()
+	Treem()
 end
 
 for i = 0, 13 do
-UglyO()
+	UglyO()
 end
 
 for i =0, 5 do
-WhiteC()
+	WhiteC()
 end
 
 
@@ -50,15 +51,18 @@ local function onCollision(event)
 
 		----game over of player has less exp
 		if(event.object2.exp < event.object1.exp) then
-			event.object2.alpha = 0
+			
+			event.object2:removeSelf()
 	
 		end
 		---else add exp to the player and do collision
 		if(event.object2.exp >= event.object1.exp) then
 		 	event.object2.exp = event.object2.exp + event.object1.exp
 
-		 	event.object2.collsion = "true"
-		 	event.object1:removeSelf( )
+		 
+		 	event.object1:removeSelf()
+		 
+		 	
 
 		 end
 
@@ -69,7 +73,7 @@ end
 
 Runtime:addEventListener( "touch", moveHero )
 Runtime:addEventListener( "collision", onCollision )
---:addEventListener( "collision", onCollision )
+
 
 
 

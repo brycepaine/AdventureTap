@@ -33,10 +33,11 @@ local trans2
 local t1
 local function trans1 ( )
    
-   t1 =transition.to( bear, { time=1000, delay = math.random(0,1000),x=bear.x+50,  onComplete=trans2 } )
+   t1 =transition.to( bear, { time=1000, delay = w,x=bear.x+50,  onComplete=trans2 } )
 end
 
 trans2 = function ()
+	if(bear.x == nil ) then return end
 	t1 = transition.to( bear, { time=1000, x=bear.x - 50,  onComplete=trans1} )
 end
 

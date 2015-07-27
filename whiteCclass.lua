@@ -39,6 +39,7 @@ local function trans1 ( )
 end
 
 trans2 = function ()
+	if(whiteC.x == nil ) then return end
 	t1 = transition.to( whiteC, { time=1000, x=whiteC.x - 50,  onComplete=trans1} )
 end
 

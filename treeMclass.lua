@@ -37,21 +37,21 @@ local trans3
 local trans4
 local trans5
 local t1
--- local function trans1 ( )
-   
---    t1 =transition.to( treem, { time=1000, delay = treem.x, x=treem.x+50,  onComplete=trans2 } )
--- end
+
 
 local function trans5()
 	t1 = transition.to(treem, {time = 1000, x = treem.x + 50, y = treem.y + 50, onComplete = trans2})
 end
 trans4 = function()
+	if(treem.x == nil or treem.y == nil) then return end
 	t1 = transition.to(treem, {time = 1000, x = treem.x + 50, y = treem.y - 50, onComplete = trans5})
 end
 trans3 = function()
+	if(treem.x == nil or treem.y == nil) then return end
 	t1 = transition.to(treem,{time = 1000, delay = treem.x, x = treem.x - 50, onComplete = trans4})
 end
 trans2 = function ()
+	if(treem.x == nil or treem.y == nil) then return end
 	t1 = transition.to( treem, { time=1000, x=treem.x - 50,  onComplete=trans3} )
 end
 

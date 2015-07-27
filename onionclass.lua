@@ -27,25 +27,31 @@ onion_options =
 
 	onion.exp = 1
 
-	onion.collision = "false"
+	
 
 
 local trans2
 local t1
 local function trans1 ( )
-   if (onion.collision == "false") then
+   
    		t1 =transition.to( onion, { time=1000, delay = math.random(0,1000),x=onion.x+50,  onComplete=trans2 } )
-	end
+	
 end
 
 trans2 = function ()
-	if(onion.collision == "false") then
+	
+	print(onion.x)
+	if(onion.x == nil) then return end
 		t1 = transition.to( onion, { time=1000, x=onion.x - 50,  onComplete=trans1} )
-	end
+	
 end
 
 
 trans1()
+
+function destroy(obj)
+	obj.alpha = 0
+end
 
 
 

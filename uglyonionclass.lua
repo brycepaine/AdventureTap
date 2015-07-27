@@ -39,6 +39,7 @@ local function trans1 ( )
 end
 
 trans2 = function ()
+	if(uglyO.x == nil) then return end
 	t1 = transition.to( uglyO, { time=1000, x=uglyO.x - 50,  onComplete=trans1} )
 end
 
