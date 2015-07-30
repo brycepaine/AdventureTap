@@ -40,7 +40,7 @@ end
 
 trans2 = function ()
 	
-	print(onion.x)
+	--print(onion.x)
 	if(onion.x == nil) then return end
 		t1 = transition.to( onion, { time=1000, x=onion.x - 50,  onComplete=trans1} )
 	
