@@ -1,9 +1,7 @@
 display.setStatusBar( display.HiddenStatusBar )
 require 'onionclass'
 require 'bearclass'
-
 require 'heroclass'
-
 require 'treeMclass'
 require 'uglyonionclass'
 require 'whiteCclass'
@@ -18,6 +16,12 @@ for i = 0, 10 do
 	Bear()
 end
 
+bg = display.newImageRect('finalforest.png',800,1400)
+	bg.anchorX = 0
+	bg.anchorY = 1
+	bg.x = 0
+	bg.y = display.contentHeight-20
+	bg:toBack()
 
 local function moveHero( event )
    local herox = event.x
