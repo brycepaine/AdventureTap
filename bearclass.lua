@@ -1,4 +1,4 @@
- require 'class'
+
 require 'class'
  Bear = class(function(bear)
 
@@ -24,15 +24,20 @@ bear_options =
 	bear:scale(1.5,1.5)
 	bear:play()
 
+	physics.addBody(bear)
+	bear.bodyType = "static"
+
+	bear.exp = 5
 
 local trans2
 local t1
 local function trans1 ( )
    
-   t1 =transition.to( bear, { time=1000, delay = bear.x,x=bear.x+50,  onComplete=trans2 } )
+   t1 =transition.to( bear, { time=1000, delay = w,x=bear.x+50,  onComplete=trans2 } )
 end
 
 trans2 = function ()
+	if(bear.x == nil ) then return end
 	t1 = transition.to( bear, { time=1000, x=bear.x - 50,  onComplete=trans1} )
 end
 
