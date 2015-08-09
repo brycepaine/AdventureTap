@@ -1,11 +1,9 @@
 display.setStatusBar( display.HiddenStatusBar )
 require 'onionclass'
 require 'bearclass'
+require 'heroclass'
 require 'class'
 require 'heroclass'
-
-
-
 
 
 require 'treeMclass'
@@ -42,6 +40,14 @@ end
 for i = 0, 10 do
 	Bear()
 end
+
+
+bg = display.newImageRect('finalforest.png',800,1400)
+	bg.anchorX = 0
+	bg.anchorY = 1
+	bg.x = 0
+	bg.y = display.contentHeight-20
+	bg:toBack()
 
 for i = 0, 10 do
 	Treem()
