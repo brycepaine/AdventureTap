@@ -1,6 +1,6 @@
  require 'class'
 
- Hero = class(function(hero,x)
+ Hero = class(function(hero,x,y)
 
 
 
@@ -22,6 +22,7 @@ hero_options =
 	hero.x = x
 	hero.y = 1400
 	hero:play()
+	hero.name = "hero"
 
 	physics.addBody(hero)
 
@@ -32,7 +33,7 @@ local trans2
 local t1
 local function trans1 ( )
    
-   t1 =transition.to( hero, { time=10000, y=100} )
+   transition.to( hero, { time=10000, y=100} )
 end
 
 

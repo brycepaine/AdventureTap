@@ -49,9 +49,7 @@ end
 
 trans1()
 
-function destroy(obj)
-	obj.alpha = 0
-end
+
 
 
 
